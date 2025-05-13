@@ -3,14 +3,14 @@ version: '3.8'
 services:
   api:
     command: >
-      sh -c "npm run start:prod"
+      sh -c "npm run test:e2e"
     depends_on:
       - db
-    ports:
-      - 3000:3000
     build:
       context: .
       dockerfile: Dockerfile
+    ports:
+      - 3000:3000
     environment:
       - DATABASE_HOST=db
       - DATABASE_PORT=5432
