@@ -30,7 +30,7 @@ jobs:
           command: npm run test:e2e
           name: Run tests
       - run:
-          command: npm run build && coveralls/upload
+          command: npm run build
           name: Install and Make
       - persist_to_workspace:
           root: ~/project
