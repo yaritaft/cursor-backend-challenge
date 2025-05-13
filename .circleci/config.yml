@@ -11,7 +11,7 @@ jobs:
           DATABASE_PORT: 5432
           DATABASE_USER: postgres
           DATABASE_PASSWORD: postgres
-          DATABASE_NAME: usersdb
+          DATABASE_NAME: usersdb_test
           DATABASE_SYNC: true
           POKEMON_API_URL: https://pokeapi.co/api/v2
       # Service container image
