@@ -4,6 +4,10 @@ You have to build a microservice that exposes a REST api with two different
 tables, users and states. Both tables should be open to creation, deletion,
 or update. Every request must only accept this `Content-type: application/json`.
 
+### Badges
+
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/yaritaft/cursor-backend-challenge/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/yaritaft/cursor-backend-challenge/tree/master)
+
 ### Features
 
 - Create new Users with their Pokemon Ids
