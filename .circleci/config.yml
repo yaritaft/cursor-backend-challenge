@@ -36,6 +36,10 @@ jobs:
       - persist_to_workspace:
           root: ~/project
           paths: .
+      - coveralls/upload:
+          parallel: true
+          flag_name: Test 1
+          verbose: true
 workflows:
   build_test_deploy: # this can be any name you choose
     jobs:
