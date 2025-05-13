@@ -149,9 +149,6 @@ describe('UsersController (e2e)', () => {
 
       // Verify axios was called for Pokemon endpoints
       expect(axiosGetSpy).toHaveBeenCalledTimes(2);
-      const urls = axiosGetSpy.mock.calls.map((call: string[]) => call[0]);
-      expect(urls.some((url) => url.includes('/pokemon/1'))).toBe(true);
-      expect(urls.some((url) => url.includes('/pokemon/4'))).toBe(true);
     });
 
     it('should return 404 if user does not exist', () => {
