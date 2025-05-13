@@ -7,7 +7,7 @@ jobs:
     docker:
       - image: cimg/node:20.11.1
         environment:
-          DATABASE_HOST: db
+          DATABASE_HOST: 0.0.0.0
           DATABASE_PORT: 5432
           DATABASE_USER: postgres
           DATABASE_PASSWORD: postgres
