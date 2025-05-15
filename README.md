@@ -8,6 +8,12 @@ or update. Every request must only accept this `Content-type: application/json`.
 
 [![CircleCI](https://dl.circleci.com/status-badge/img/gh/yaritaft/cursor-backend-challenge/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/yaritaft/cursor-backend-challenge/tree/master)
 
+### How to run locally coveralls
+
+```
+COVERALLS_REPO_TOKEN=gLskLgZ58OYgHYPem2MLSnox65zICVe8t npm run test:cov
+```
+
 ### Features
 
 - Create new Users with their Pokemon Ids
