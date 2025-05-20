@@ -4,6 +4,10 @@ You have to build a microservice that exposes a REST api with two different
 tables, users and states. Both tables should be open to creation, deletion,
 or update. Every request must only accept this `Content-type: application/json`.
 
+## App Running on
+
+- [SWAGGER][https://blooming-garden-01349-26f398f01a3b.herokuapp.com/api]
+
 ### Badges
 
 [![CircleCI](https://dl.circleci.com/status-badge/img/gh/yaritaft/cursor-backend-challenge/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/yaritaft/cursor-backend-challenge/tree/master)
@@ -73,7 +77,7 @@ chmod 711 ./up_test.sh
 
 ## Route
 
-- : [![API Swagger](https://localhost:3000/api)
+- Local: [API Swagger][https://localhost:3000/api]
 
 ## Env vars should be defined
 
