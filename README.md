@@ -77,7 +77,7 @@ chmod 711 ./up_test.sh
 
 ## Route
 
-- Local: [API Swagger](https://localhost:3000/api)
+- Local: [API Swagger](http://localhost:3000/api)
 
 ## Env vars should be defined
 
