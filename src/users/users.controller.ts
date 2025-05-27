@@ -68,7 +68,7 @@ export class UsersController {
       ...createUserDto,
       pokemonIds: createUserDto.pokemonIds || [],
     };
-    return this.usersService.create(userData);
+    return this.usersService.create(userData as any);
   }
 
   @Put(':id')
