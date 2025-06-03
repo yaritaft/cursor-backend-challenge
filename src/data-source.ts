@@ -1,5 +1,6 @@
 import { DataSource } from 'typeorm';
 import { User } from './users/user.entity';
+import { WebhookUpdate } from './webhooks/webhook-update.entity';
 import { join } from 'path';
 import * as dotenv from 'dotenv';
 
@@ -17,12 +18,15 @@ const password = process.env.DATABASE_PASSWORD || 'postgres';
 const database = process.env.DATABASE_NAME || 'usersdb';
 const synchronize = process.env.DATABASE_SYNC === 'true' ? true : false;
 
+// Define entities
+const entities = [User, WebhookUpdate];
+
 // Create data source configuration
 const dataSourceConfig = url
   ? {
       type: 'postgres' as const,
       url,
-      entities: [User],
+      entities,
       synchronize,
       migrations: [join(__dirname, '..', 'migrations', '*.{ts,js}')],
     }
@@ -33,7 +37,7 @@ const dataSourceConfig = url
       username,
       password,
       database,
-      entities: [User],
+      entities,
       synchronize: false,
       migrations: [
         join(__dirname, '..', 'migrations', '*.{ts,js}'),
