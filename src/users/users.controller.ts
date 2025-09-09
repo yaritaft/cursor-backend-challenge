@@ -3,6 +3,8 @@ import {
   Controller,
   Delete,
   Get,
+  HttpException,
+  HttpStatus,
   Param,
   Post,
   Put,
@@ -38,7 +40,15 @@ export class UsersController {
     isArray: true,
   })
   async findAll(): Promise<User[]> {
-    return this.usersService.findAll();
+    try {
+      return this.usersService.findAll();
+    } catch (e) {
+      // Si el breaker está OPEN y no hay fallback, respondé 503
+      throw new HttpException(
+        { message: 'Servicio externo no disponible' },
+        HttpStatus.SERVICE_UNAVAILABLE,
+      );
+    }
   }
 
   @Get(':id')

@@ -2,13 +2,31 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { User } from './user.entity';
 import { UsersRepository } from './users.repository';
 import { UserWithPokemonDto } from './dto';
+import { BreakerFactory } from '../middlewares/breaker.factory';
 
 @Injectable()
 export class UsersService {
-  constructor(private usersRepository: UsersRepository) {}
+  private getUserBreaker;
+
+  constructor(
+    private usersRepository: UsersRepository,
+    private readonly breakerFactory: BreakerFactory,
+  ) {
+    const getUsers = async (): Promise<User[]> => {
+      return this.usersRepository.findAll();
+    };
+
+    // 2) Crear breaker con fallback
+    this.getUserBreaker = this.breakerFactory.create(getUsers, {
+      timeout: 2000,
+      errorThresholdPercentage: 50,
+      volumeThreshold: 10,
+      resetTimeout: 10000,
+    });
+  }
 
   findAll(): Promise<User[]> {
-    return this.usersRepository.findAll();
+    return this.getUserBreaker.fire();
   }
 
   async findById(id: number): Promise<User> {
